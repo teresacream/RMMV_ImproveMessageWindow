@@ -33,6 +33,9 @@ getWindowPosition.setfFlag = function() {
 getWindowPosition.getXY = function( eventID ) {
 	this.x = $gameMap.event( eventID ).screenX();
 	this.y = $gameMap.event( eventID ).screenY();
+	
+	$gameVariables.setValue( 2, this.x );
+	$gameVariables.setValue( 3, this.y );
 }
 
 //------------------------------------------------------------------------
