@@ -4269,7 +4269,7 @@ Window_Message.prototype.initialize = function() {
 	console.log( "Window_Message" );
     var width = this.windowWidth();
     var height = this.windowHeight();
-    var x = (Graphics.boxWidth - width) / 2;
+    var x = (Graphics.boxWidth - width) / 2; 
     Window_Base.prototype.initialize.call(this, x, 0, width, height);
     this.openness = 0;
     this.initMembers();
