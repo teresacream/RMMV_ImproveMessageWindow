@@ -4348,14 +4348,16 @@ Window_Message.prototype.update = function() {
 };
 
 Window_Message.prototype.updateXY = function() {
+	//console(getWindowPosition.isFlag());
 	if( getWindowPosition.isFlag() )
 	{	
 		var x = getWindowPosition.returnX();
 		var y = getWindowPosition.returnY();
+		console.log(y);
 		if( this._x != x || this._y != y ) {
 			this._x = x;
 			this._y = y;
-			this.move( this._x, this._y, this._width, this._height );
+			this.move( this._x, 10, this._width, this._height );
 		}
 	}
 }
