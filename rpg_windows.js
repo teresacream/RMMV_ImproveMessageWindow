@@ -4270,6 +4270,7 @@ Window_Message.prototype.constructor = Window_Message;
 Window_Message.prototype.initialize = function() {
 	console.log( "Window_Message" );
     var width = this.windowWidth();
+	//var width = this.contentsWidth();
     var height = this.windowHeight();
     var x = (Graphics.boxWidth - width) / 2; 
     Window_Base.prototype.initialize.call(this, x, 0, width, height);
@@ -4348,16 +4349,18 @@ Window_Message.prototype.update = function() {
 };
 
 Window_Message.prototype.updateXY = function() {
-	//console(getWindowPosition.isFlag());
+	console.log(this._x);
+	console.log(this._y);
+	console.log(this._height);
 	if( getWindowPosition.isFlag() )
 	{	
 		var x = getWindowPosition.returnX();
 		var y = getWindowPosition.returnY();
-		console.log(y);
+		
 		if( this._x != x || this._y != y ) {
 			this._x = x;
 			this._y = y;
-			this.move( this._x, 10, this._width, this._height );
+			this.move( this._x, this._y, this._width, this._height );
 		}
 	}
 }
@@ -4387,7 +4390,8 @@ Window_Message.prototype.startMessage = function() {
 
 Window_Message.prototype.updatePlacement = function() {
     this._positionType = $gameMessage.positionType();
-    this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
+    //this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
+	this.y = this._y;
     this._goldWindow.y = this.y > 0 ? 0 : Graphics.boxHeight - this._goldWindow.height;
 };
 
@@ -4426,7 +4430,6 @@ Window_Message.prototype.updateLoading = function() {
 };
 
 Window_Message.prototype.updateInput = function() {
-	console.log( "Window_Message.updateInput" );
     if (this.isAnySubWindowActive()) {
         return true;
     }
