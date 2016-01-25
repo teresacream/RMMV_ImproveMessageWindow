@@ -4348,10 +4348,15 @@ Window_Message.prototype.update = function() {
 };
 
 Window_Message.prototype.updateXY = function() {
-	var x = $gameVariables.value(2);
-	if( this._x != x ) {
-		this._x = x;
-		this.move( x, this._y, this._width, this._height );
+	if( getWindowPosition.isFlag() )
+	{	
+		var x = getWindowPosition.returnX();
+		var y = getWindowPosition.returnY();
+		if( this._x != x || this._y != y ) {
+			this._x = x;
+			this._y = y;
+			this.move( this._x, this._y, this._width, this._height );
+		}
 	}
 }
 
