@@ -38,6 +38,14 @@ getWindowPosition.isFlag = function() {
 	return ( this.flag == 1 );
 }
 
+getWindowPosition.returnX = function() {
+	return this.x;
+}
+
+getWindowPosition.returnY = function() {
+	return this.y;
+}
+
 getWindowPosition.getXY = function( eventID ) {
 	this.x = $gameMap.event( eventID ).screenX();
 	this.y = $gameMap.event( eventID ).screenY();
