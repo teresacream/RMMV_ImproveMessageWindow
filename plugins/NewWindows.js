@@ -30,6 +30,10 @@ getWindowPosition.setFlag = function() {
 	this.flag = 1;
 }
 
+getWindowPosition.pullFlag = function() {	//拔旗，對不起這是作者的惡趣味
+	this.flag = 0;
+}
+
 getWindowPosition.getXY = function( eventID ) {
 	this.x = $gameMap.event( eventID ).screenX();
 	this.y = $gameMap.event( eventID ).screenY();
