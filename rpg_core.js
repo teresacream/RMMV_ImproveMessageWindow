@@ -5237,8 +5237,11 @@ Window.prototype.update = function() {
  * @param {Number} height The height of the window
  */
 Window.prototype.move = function(x, y, width, height) {
+	console.log( "Window.move" );
     this.x = x || 0;
     this.y = y || 0;
+	console.log( this.x );
+	console.log( this.y );
     if (this._width !== width || this._height !== height) {
         this._width = width || 0;
         this._height = height || 0;
