@@ -15,9 +15,10 @@ Window_Base.prototype = Object.create(Window.prototype);
 Window_Base.prototype.constructor = Window_Base;
 
 Window_Base.prototype.initialize = function(x, y, width, height) {
+	console.log("Window_Base");
     Window.prototype.initialize.call(this);
     this.loadWindowskin();
-    this.move(x, y, width, height);
+    this .move(x, y, width, height);
     this.updatePadding();
     this.updateBackOpacity();
     this.updateTone();
@@ -32,34 +33,39 @@ Window_Base._iconHeight = 32;
 Window_Base._faceWidth  = 144;
 Window_Base._faceHeight = 144;
 
+//可以看做是行距
 Window_Base.prototype.lineHeight = function() {
     return 36;
 };
 
 Window_Base.prototype.standardFontFace = function() {
     if ($gameSystem.isChinese()) {
-        return 'SimHei, Heiti TC, sans-serif';
+        return '華康中圓體, 新細明體';
     } else if ($gameSystem.isKorean()) {
-        return 'Dotum, AppleGothic, sans-serif';
+        return '華康中圓體, 新細明體';
     } else {
-        return 'GameFont';
+        return '華康中圓體';
     }
 };
 
+//文字大小
 Window_Base.prototype.standardFontSize = function() {
     return 28;
 };
 
+//文字與視窗邊界間隔
 Window_Base.prototype.standardPadding = function() {
     return 18;
 };
+
 
 Window_Base.prototype.textPadding = function() {
     return 6;
 };
 
+//視窗透明度
 Window_Base.prototype.standardBackOpacity = function() {
-    return 192;
+    return 81;
 };
 
 Window_Base.prototype.loadWindowskin = function() {
@@ -74,10 +80,12 @@ Window_Base.prototype.updateBackOpacity = function() {
     this.backOpacity = this.standardBackOpacity();
 };
 
+//文字範圍寬度
 Window_Base.prototype.contentsWidth = function() {
     return this.width - this.standardPadding() * 2;
 };
 
+//文字範圍高度
 Window_Base.prototype.contentsHeight = function() {
     return this.height - this.standardPadding() * 2;
 };
@@ -92,6 +100,7 @@ Window_Base.prototype.updateTone = function() {
 };
 
 Window_Base.prototype.createContents = function() {
+	console.log("createcontents");
     this.contents = new Bitmap(this.contentsWidth(), this.contentsHeight());
     this.resetFontSettings();
 };
@@ -133,6 +142,7 @@ Window_Base.prototype.updateClose = function() {
 };
 
 Window_Base.prototype.open = function() {
+	console.log("open");
     if (!this.isOpen()) {
         this._opening = true;
     }
@@ -155,11 +165,13 @@ Window_Base.prototype.isClosing = function() {
 };
 
 Window_Base.prototype.show = function() {
+	console.log("show");
     this.visible = true;
 };
 
 Window_Base.prototype.hide = function() {
-    this.visible = false;
+    console.log("hide");
+	this.visible = false;
 };
 
 Window_Base.prototype.activate = function() {
@@ -715,6 +727,7 @@ Window_Selectable.prototype = Object.create(Window_Base.prototype);
 Window_Selectable.prototype.constructor = Window_Selectable;
 
 Window_Selectable.prototype.initialize = function(x, y, width, height) {
+	console.log( "Window_Selectable" );
     Window_Base.prototype.initialize.call(this, x, y, width, height);
     this._index = -1;
     this._cursorFixed = false;
@@ -1291,6 +1304,7 @@ Window_Command.prototype = Object.create(Window_Selectable.prototype);
 Window_Command.prototype.constructor = Window_Command;
 
 Window_Command.prototype.initialize = function(x, y) {
+	console.log( "Window_Command" );
     this.clearCommandList();
     this.makeCommandList();
     var width = this.windowWidth();
@@ -1445,6 +1459,7 @@ Window_HorzCommand.prototype = Object.create(Window_Command.prototype);
 Window_HorzCommand.prototype.constructor = Window_HorzCommand;
 
 Window_HorzCommand.prototype.initialize = function(x, y) {
+	console.log( "Window_HorzCommand" );
     Window_Command.prototype.initialize.call(this, x, y);
 };
 
@@ -1559,6 +1574,7 @@ Window_MenuCommand.prototype = Object.create(Window_Command.prototype);
 Window_MenuCommand.prototype.constructor = Window_MenuCommand;
 
 Window_MenuCommand.prototype.initialize = function(x, y) {
+	console.log( "Window_MenuCommand" );
     Window_Command.prototype.initialize.call(this, x, y);
     this.selectLast();
 };
@@ -1694,6 +1710,7 @@ Window_MenuStatus.prototype = Object.create(Window_Selectable.prototype);
 Window_MenuStatus.prototype.constructor = Window_MenuStatus;
 
 Window_MenuStatus.prototype.initialize = function(x, y) {
+	console.log( "Window_MenuStatus" );
     var width = this.windowWidth();
     var height = this.windowHeight();
     Window_Selectable.prototype.initialize.call(this, x, y, width, height);
@@ -1813,6 +1830,7 @@ Window_MenuActor.prototype = Object.create(Window_MenuStatus.prototype);
 Window_MenuActor.prototype.constructor = Window_MenuActor;
 
 Window_MenuActor.prototype.initialize = function() {
+	console.log( "Window_MenuActor" );
     Window_MenuStatus.prototype.initialize.call(this, 0, 0);
     this.hide();
 };
@@ -1905,6 +1923,7 @@ Window_ItemList.prototype = Object.create(Window_Selectable.prototype);
 Window_ItemList.prototype.constructor = Window_ItemList;
 
 Window_ItemList.prototype.initialize = function(x, y, width, height) {
+	console.log( "Window_ItemList" );
     Window_Selectable.prototype.initialize.call(this, x, y, width, height);
     this._category = 'none';
     this._data = [];
@@ -2023,6 +2042,7 @@ Window_SkillType.prototype = Object.create(Window_Command.prototype);
 Window_SkillType.prototype.constructor = Window_SkillType;
 
 Window_SkillType.prototype.initialize = function(x, y) {
+	console.log( "Window_SkillType" );
     Window_Command.prototype.initialize.call(this, x, y);
     this._actor = null;
 };
@@ -2090,6 +2110,7 @@ Window_SkillStatus.prototype = Object.create(Window_Base.prototype);
 Window_SkillStatus.prototype.constructor = Window_SkillStatus;
 
 Window_SkillStatus.prototype.initialize = function(x, y, width, height) {
+	console.log( "Window_SkillStatus" );
     Window_Base.prototype.initialize.call(this, x, y, width, height);
     this._actor = null;
 };
@@ -2126,6 +2147,7 @@ Window_SkillList.prototype = Object.create(Window_Selectable.prototype);
 Window_SkillList.prototype.constructor = Window_SkillList;
 
 Window_SkillList.prototype.initialize = function(x, y, width, height) {
+	console.log( "Window_SkillList" );
     Window_Selectable.prototype.initialize.call(this, x, y, width, height);
     this._actor = null;
     this._stypeId = 0;
@@ -2518,6 +2540,7 @@ Window_Status.prototype = Object.create(Window_Selectable.prototype);
 Window_Status.prototype.constructor = Window_Status;
 
 Window_Status.prototype.initialize = function() {
+	console.log( "Window_Status" );
     var width = Graphics.boxWidth;
     var height = Graphics.boxHeight;
     Window_Selectable.prototype.initialize.call(this, 0, 0, width, height);
@@ -2645,6 +2668,7 @@ Window_Options.prototype = Object.create(Window_Command.prototype);
 Window_Options.prototype.constructor = Window_Options;
 
 Window_Options.prototype.initialize = function() {
+	console.log( "Window_Options" );
     Window_Command.prototype.initialize.call(this, 0, 0);
     this.updatePlacement();
 };
@@ -3820,6 +3844,7 @@ Window_ChoiceList.prototype = Object.create(Window_Command.prototype);
 Window_ChoiceList.prototype.constructor = Window_ChoiceList;
 
 Window_ChoiceList.prototype.initialize = function(messageWindow) {
+	console.log( "Window_ChoiceList" );
     this._messageWindow = messageWindow;
     Window_Command.prototype.initialize.call(this, 0, 0);
     this.openness = 0;
@@ -4240,6 +4265,7 @@ Window_Message.prototype = Object.create(Window_Base.prototype);
 Window_Message.prototype.constructor = Window_Message;
 
 Window_Message.prototype.initialize = function() {
+	console.log( "Window_Message" );
     var width = this.windowWidth();
     var height = this.windowHeight();
     var x = (Graphics.boxWidth - width) / 2;
@@ -4562,6 +4588,7 @@ Window_Message.prototype.startPause = function() {
 // is handled as a window for convenience.
 
 function Window_ScrollText() {
+	console.log("Window_ScrollText");
     this.initialize.apply(this, arguments);
 }
 
