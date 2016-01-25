@@ -18,6 +18,8 @@ Window_Base.prototype.initialize = function(x, y, width, height) {
 	console.log("Window_Base");
     Window.prototype.initialize.call(this);
     this.loadWindowskin();
+	console.log(width);
+	console.log(height);
     this.move(x, y, width, height);
     this.updatePadding();
     this.updateBackOpacity();
@@ -4272,6 +4274,10 @@ Window_Message.prototype.initialize = function() {
     var x = (Graphics.boxWidth - width) / 2; 
     Window_Base.prototype.initialize.call(this, x, 0, width, height);
     this.openness = 0;
+	this._x = x;
+	this._y = 0;
+	this._width = width;
+	this._height = height;
     this.initMembers();
     this.createSubWindows();
     this.updatePlacement();
@@ -4330,6 +4336,8 @@ Window_Message.prototype.update = function() {
             return;
         } else if (this.updateMessage()) {
             return;
+		} else if (this.updateXY()){
+			return;
         } else if (this.canStart()) {
             this.startMessage();
         } else {
@@ -4338,6 +4346,14 @@ Window_Message.prototype.update = function() {
         }
     }
 };
+
+Window_Message.prototype.updateXY = function() {
+	var x = $gameVariables.value(2);
+	if( this._x != x ) {
+		this._x = x;
+		this.move( x, this._y, this._width, this._height );
+	}
+}
 
 Window_Message.prototype.checkToNotClose = function() {
     if (this.isClosing() && this.isOpen()) {
