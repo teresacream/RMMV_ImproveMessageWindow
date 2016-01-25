@@ -18,7 +18,7 @@ Window_Base.prototype.initialize = function(x, y, width, height) {
 	console.log("Window_Base");
     Window.prototype.initialize.call(this);
     this.loadWindowskin();
-    this .move(x, y, width, height);
+    this.move(x, y, width, height);
     this.updatePadding();
     this.updateBackOpacity();
     this.updateTone();
@@ -265,6 +265,7 @@ Window_Base.prototype.changePaintOpacity = function(enabled) {
 };
 
 Window_Base.prototype.drawText = function(text, x, y, maxWidth, align) {
+	console.log( "Window_Base.drawText" );
     this.contents.drawText(text, x, y, maxWidth, this.lineHeight(), align);
 };
 
@@ -4351,6 +4352,7 @@ Window_Message.prototype.canStart = function() {
 };
 
 Window_Message.prototype.startMessage = function() {
+	console.log( "Window_Message.startMessage" );
     this._textState = {};
     this._textState.index = 0;
     this._textState.text = this.convertEscapeCharacters($gameMessage.allText());
@@ -4368,7 +4370,7 @@ Window_Message.prototype.updatePlacement = function() {
 
 Window_Message.prototype.updateBackground = function() {
     this._background = $gameMessage.background();
-    this.setBackgroundType(this._background);
+    this.setBackgroundType(this._background); 
 };
 
 Window_Message.prototype.terminateMessage = function() {
@@ -4401,6 +4403,7 @@ Window_Message.prototype.updateLoading = function() {
 };
 
 Window_Message.prototype.updateInput = function() {
+	console.log( "Window_Message.updateInput" );
     if (this.isAnySubWindowActive()) {
         return true;
     }
