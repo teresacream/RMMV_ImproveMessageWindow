@@ -26,7 +26,7 @@ this.x = 0;		//eventX
 this.y = 0;		//eventY
 this.flag = 0;	//if 1, move the window above event
 
-getWindowPosition.setfFlag = function() {
+getWindowPosition.setFlag = function() {
 	this.flag = 1;
 }
 
