@@ -823,6 +823,13 @@ Bitmap.prototype.drawCircle = function(x, y, radius, color) {
 Bitmap.prototype.drawText = function(text, x, y, maxWidth, lineHeight, align) {
     // Note: Firefox has a bug with textBaseline: Bug 737852
     //       So we use 'alphabetic' here.
+	console.log( "drawText" );
+	console.log( text );
+	console.log( x );
+	console.log( y );
+	console.log( maxWidth );
+	console.log( lineHeight );
+	console.log( align );
     if (text !== undefined) {
         var tx = x;
         var ty = y + lineHeight - (lineHeight - this.fontSize * 0.7) / 2;

@@ -415,6 +415,8 @@ Game_Message.prototype.scrollNoFast = function() {
 };
 
 Game_Message.prototype.add = function(text) {
+	console.log("Game_Message.add");
+	console.log(text);
     this._texts.push(text);
 };
 
