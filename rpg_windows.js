@@ -15,11 +15,8 @@ Window_Base.prototype = Object.create(Window.prototype);
 Window_Base.prototype.constructor = Window_Base;
 
 Window_Base.prototype.initialize = function(x, y, width, height) {
-	console.log("Window_Base");
     Window.prototype.initialize.call(this);
     this.loadWindowskin();
-	console.log(width);
-	console.log(height);
     this.move(x, y, width, height);
     this.updatePadding();
     this.updateBackOpacity();
@@ -337,7 +334,8 @@ Window_Base.prototype.processCharacter = function(textState) {
 };
 
 Window_Base.prototype.processNormalCharacter = function(textState) {
-    var c = textState.text[textState.index++];
+    console.log("processNormalCharacter");
+	var c = textState.text[textState.index++];
     var w = this.textWidth(c);
     this.contents.drawText(c, textState.x, textState.y, w * 2, textState.height);
     textState.x += w;
@@ -4368,14 +4366,21 @@ Window_Message.prototype.startMessage = function() {
 
 Window_Message.prototype.updatePlacement = function() {
 	if( getWindowPosition.isFlag() ) {
+		console.log("updatePlacement");
+		console.log(this._textState.text);
+		//console.log(this.convertEscapeCharacters(this._textState.text) );
+		console.log(getWindowWidth.getNormalChar(this._textState));
 		var x = getWindowPosition.returnX();
 		var y = getWindowPosition.returnY();
+		var width = getWindowWidth.measureWidth(getWindowWidth.getNormalChar(this._textState));
 		var height = this.calcTextHeight( this._textState, true );
-		if( this.x != x || this.y != y || this.height != height ) {
+		console.log(width);
+		if( this.x != x || this.y != y || this.height != height || this.width != width ) {
 			this.x = x;
 			this.y = y;
 			this.height = height;
-			this.move( this.x, this.y, this.width, height + this.lineHeight() );
+			this.width = width;
+			this.move( this.x, this.y, this.width + this.standardPadding(), height + this.lineHeight() );
 		}
 	}
 	else {
