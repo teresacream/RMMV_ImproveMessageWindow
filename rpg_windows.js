@@ -4270,13 +4270,10 @@ Window_Message.prototype.constructor = Window_Message;
 Window_Message.prototype.initialize = function() {
 	console.log( "Window_Message" );
     var width = this.windowWidth();
-	//var width = this.contentsWidth();
     var height = this.windowHeight();
     var x = (Graphics.boxWidth - width) / 2; 
     Window_Base.prototype.initialize.call(this, x, 0, width, height);
     this.openness = 0;
-	this._x = x;
-	this._y = 0;
 	this._width = width;
 	this._height = height;
     this.initMembers();
@@ -4370,19 +4367,18 @@ Window_Message.prototype.startMessage = function() {
 };
 
 Window_Message.prototype.updatePlacement = function() {
-	if( getWindowPosition.isFlag() )
-	{	
+	if( getWindowPosition.isFlag() ) {
 		var x = getWindowPosition.returnX();
 		var y = getWindowPosition.returnY();
-		
-		if( this.x != x || this.y != y ) {
+		var height = this.calcTextHeight( this._textState, true );
+		if( this.x != x || this.y != y || this.height != height ) {
 			this.x = x;
 			this.y = y;
-			this.move( this.x, this.y, this.width, this.height );
+			this.height = height;
+			this.move( this.x, this.y, this.width, height + this.lineHeight() );
 		}
 	}
-	else
-	{
+	else {
 		this._positionType = $gameMessage.positionType();
 		this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
 	}
