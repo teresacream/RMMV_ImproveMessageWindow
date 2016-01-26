@@ -4352,17 +4352,6 @@ Window_Message.prototype.updateXY = function() {
 	console.log(this._x);
 	console.log(this._y);
 	console.log(this._height);
-	if( getWindowPosition.isFlag() )
-	{	
-		var x = getWindowPosition.returnX();
-		var y = getWindowPosition.returnY();
-		
-		if( this._x != x || this._y != y ) {
-			this._x = x;
-			this._y = y;
-			this.move( this._x, this._y, this._width, this._height );
-		}
-	}
 }
 
 Window_Message.prototype.checkToNotClose = function() {
@@ -4389,9 +4378,22 @@ Window_Message.prototype.startMessage = function() {
 };
 
 Window_Message.prototype.updatePlacement = function() {
-    this._positionType = $gameMessage.positionType();
-    //this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
-	this.y = this._y;
+	if( getWindowPosition.isFlag() )
+	{	
+		var x = getWindowPosition.returnX();
+		var y = getWindowPosition.returnY();
+		
+		if( this.x != x || this.y != y ) {
+			this.x = x;
+			this.y = y;
+			this.move( this.x, this.y, this.width, this.height );
+		}
+	}
+	else
+	{
+		this._positionType = $gameMessage.positionType();
+		this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
+	}
     this._goldWindow.y = this.y > 0 ? 0 : Graphics.boxHeight - this._goldWindow.height;
 };
 
