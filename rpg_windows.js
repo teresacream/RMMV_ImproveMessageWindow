@@ -4337,8 +4337,6 @@ Window_Message.prototype.update = function() {
             return;
         } else if (this.updateMessage()) {
             return;
-		} else if (this.updateXY()){
-			return;
         } else if (this.canStart()) {
             this.startMessage();
         } else {
@@ -4347,12 +4345,6 @@ Window_Message.prototype.update = function() {
         }
     }
 };
-
-Window_Message.prototype.updateXY = function() {
-	console.log(this._x);
-	console.log(this._y);
-	console.log(this._height);
-}
 
 Window_Message.prototype.checkToNotClose = function() {
     if (this.isClosing() && this.isOpen()) {
