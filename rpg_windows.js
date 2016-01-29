@@ -4370,17 +4370,17 @@ Window_Message.prototype.updatePlacement = function() {
 		console.log(this._textState.text);
 		//console.log(this.convertEscapeCharacters(this._textState.text) );
 		console.log(getWindowWidth.getNormalChar(this._textState));
-		var x = getWindowPosition.returnX();
-		var y = getWindowPosition.returnY();
-		var width = getWindowWidth.measureWidth(getWindowWidth.getNormalChar(this._textState));
-		var height = this.calcTextHeight( this._textState, true );
-		console.log(width);
+		var width = getWindowWidth.measureWidth(getWindowWidth.getNormalChar(this._textState)) + this.standardPadding();		
+		var height = this.calcTextHeight( this._textState, true )  + this.lineHeight();
+		var x = getWindowPosition.adjustX( getWindowPosition.returnX(), width );
+		var y = getWindowPosition.adjustY( getWindowPosition.returnY(), height );
+		
 		if( this.x != x || this.y != y || this.height != height || this.width != width ) {
 			this.x = x;
 			this.y = y;
 			this.height = height;
 			this.width = width;
-			this.move( this.x, this.y, this.width + this.standardPadding(), height + this.lineHeight() );
+			this.move( this.x, this.y, this.width , this.height );
 		}
 	}
 	else {
