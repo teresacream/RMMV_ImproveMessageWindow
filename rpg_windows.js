@@ -4354,7 +4354,6 @@ Window_Message.prototype.canStart = function() {
 };
 
 Window_Message.prototype.startMessage = function() {
-	console.log( "Window_Message.startMessage" );
     this._textState = {};
     this._textState.index = 0;
     this._textState.text = this.convertEscapeCharacters($gameMessage.allText());
@@ -4366,11 +4365,7 @@ Window_Message.prototype.startMessage = function() {
 
 Window_Message.prototype.updatePlacement = function() {
 	if( getWindowPosition.isFlag() ) {
-		console.log("updatePlacement");
-		console.log(this._textState.text);
-		//console.log(this.convertEscapeCharacters(this._textState.text) );
-		console.log(getWindowWidth.getNormalChar(this._textState));
-		var width = getWindowWidth.measureWidth(getWindowWidth.getNormalChar(this._textState)) + this.standardPadding();		
+		var width = getWindowWidth.measureWidth(getWindowWidth.getNormalChar(this._textState)) + this.standardPadding() / 2;		
 		var height = this.calcTextHeight( this._textState, true )  + this.lineHeight();
 		var x = getWindowPosition.adjustX( getWindowPosition.returnX(), width );
 		var y = getWindowPosition.adjustY( getWindowPosition.returnY(), height );
