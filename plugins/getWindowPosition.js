@@ -11,11 +11,11 @@ function getWindowPosition()
 getWindowPosition.y = 0;		//eventY
 getWindowPosition.flag = 0;	//if 1, move the window above event*/
 
-getWindowPosition.setFlag = function() {
+getWindowPosition.Enable = function() {
 	this.flag = 1;
 };
 
-getWindowPosition.pullFlag = function() {	//拔旗，對不起這是作者的惡趣味
+getWindowPosition.Disable = function() {	//拔旗，對不起這是作者的惡趣味
 	this.flag = 0;
 };
 
