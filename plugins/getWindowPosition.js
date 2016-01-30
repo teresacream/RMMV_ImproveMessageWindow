@@ -52,7 +52,7 @@ getWindowPosition.adjustY = function( y, height ) {
 	var y_down = y - 48;
 	var y_up = y_down - height;
 	
-	if( y_up > 624 )
+	if( y_up < 0 )
 		return y;
 	else
 		return  y_up;
