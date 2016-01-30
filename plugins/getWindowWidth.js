@@ -97,11 +97,13 @@ getWindowWidth.measureWidth = function(text) {
 			lineWidth = 0;
 			break;
 		default:
-			if( text[index] >= '0' && text[index] <= '9' )
+			/*if( text[index] >= '0' && text[index] <= '9' )
 				lineWidth += fontSize / 2;
 			else if( text[index] >= 'A' && text[index] <= 'Z' )
 				lineWidth += fontSize / 2;
 			else if( text[index] >= 'a' && text[index] <= 'z' )
+				lineWidth += fontSize / 2;*/
+			if( text[index] >= '!' && text[index] <= '~' )
 				lineWidth += fontSize / 2;
 			else
 				lineWidth += fontSize;
