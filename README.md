@@ -1,5 +1,4 @@
-# RM_Project
-改良RMMV腳本，使對話框可顯示於角色正上方，並依文字內容調整大小
+# RMMV_ImproveMessageWindow
 
 【聲明】
 作者是菜鳥，遇到bug或覺得code很醜請多見諒QQ
