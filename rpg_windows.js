@@ -4379,8 +4379,12 @@ Window_Message.prototype.updatePlacement = function() {
 		}
 	}
 	else {
+		this.width = this.windowWidth();
+		this.height = this.windowHeight();
+		this.x = (Graphics.boxWidth - width) / 2;
 		this._positionType = $gameMessage.positionType();
 		this.y = this._positionType * (Graphics.boxHeight - this.height) / 2;
+		this.move( this.x, this.y, this.width , this.height );
 	}
     this._goldWindow.y = this.y > 0 ? 0 : Graphics.boxHeight - this._goldWindow.height;
 };
