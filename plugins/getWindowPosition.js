@@ -30,8 +30,14 @@ getWindowPosition.returnY = function() {
 };
 
 getWindowPosition.getXY = function( eventID ) {
+	if( eventID == 0 ) {
+		this.x = $gamePlayer.screenX();
+		this.y = $gamePlayer.screenY();
+	}
+	else {
 	this.x = $gameMap.event( eventID ).screenX();
 	this.y = $gameMap.event( eventID ).screenY();
+	}
 };
 
 getWindowPosition.adjustX = function( x, width ) {
