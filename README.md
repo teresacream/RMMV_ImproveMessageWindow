@@ -9,7 +9,7 @@
 2. 覆蓋原本的rpg_windows.js</br>
 3. 覆蓋原本的plugins資料夾</br>
 4. 開啟RMMV，按F10，在空白區按Enter，開啟getWindowPosition與getWindowWidth兩個插件</br>
-</br>
+</br> 
 ### 使用方式
 1. 編輯事件</br>
 2. 開啟本功能時，新增→腳本→輸入</br>
