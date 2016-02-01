@@ -13,11 +13,11 @@
 ### 使用方式
 1.編輯事件</br>
 2.開啟本功能時，新增→腳本→輸入</br>
-    getWindowPosition.Enable();
+    `getWindowPosition.Enable();`</br>
 3.在顯示對話前，新增→腳本→輸入</br>
-    getWindowPosition.getXY(輸入編號，具體在getXY的編號內詳述);
+    `getWindowPosition.getXY(輸入編號，具體在getXY的編號內詳述);`</br>
 4.關閉此功能，或事件結束時，新增→腳本→輸入</br>
-    getWindowPosition.Disable();
+    `getWindowPosition.Disable();`</br>
 　事件結束時請務必完成本動作，否則將出錯</br>
 </br>
 ### getXY的編號
