@@ -30,4 +30,13 @@
     腳本：getWindowPosition.getXY(1);
     文字：無, 窗口, 底部
     　　：A_A
+    腳本：getWindowPosition.getXY(2);
+    文字：無, 窗口, 底部
+    　　：OwO
+    腳本：getWindowPosition.getXY(0);
+    文字：無, 窗口, 底部
+    　　：安安，你們在共殺毀
+    腳本：getWindowPosition.getXY(-1);
+    文字：無, 窗口, 底部
+    　　：隊長～不用理他們啦～
     腳本：getWindowPosition.Disable();
