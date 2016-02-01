@@ -13,11 +13,11 @@
 ### 使用方式
 1.編輯事件</br>
 2.開啟本功能時，新增→腳本→輸入</br>
-                getWindowPosition.Enable();
+    getWindowPosition.Enable();
 3.在顯示對話前，新增→腳本→輸入</br>
-                getWindowPosition.getXY(輸入編號，具體在getXY的編號內詳述);
+    getWindowPosition.getXY(輸入編號，具體在getXY的編號內詳述);
 4.關閉此功能，或事件結束時，新增→腳本→輸入</br>
-                getWindowPosition.Disable();
+    getWindowPosition.Disable();
 　事件結束時請務必完成本動作，否則將出錯</br>
 </br>
 ### getXY的編號
@@ -26,8 +26,8 @@
 希望對話框顯示在跟隨者上方：第一位跟隨者填-1、第二位填-2，以此類推</br>
 </br>
 ### 範例
-                腳本：getWindowPosition.Enable();
-                腳本：getWindowPosition.getXY(1);
-                文字：無, 窗口, 底部
-                ：A_A
-                腳本：getWindowPosition.Disable();
+    腳本：getWindowPosition.Enable();
+    腳本：getWindowPosition.getXY(1);
+    文字：無, 窗口, 底部
+    　　：A_A
+    腳本：getWindowPosition.Disable();
