@@ -12,5 +12,17 @@
 </br>
 【使用方式】</br>
 1. 編輯事件</br>
-2. 希望對話框顯示於角色上方時，首先新增→腳本→輸入getWindowPosition.Enable();</br>
-3. 在顯示對話前，新增→腳本→輸入getWindowPosition.getXY(括號內是該事件的編號，若希望顯示於主角上方則打0即可);</br>
+2. 開啟本功能時，</br>
+   新增→腳本→輸入getWindowPosition.Enable();</br>
+3. 在顯示對話前，</br>
+   新增→腳本→輸入getWindowPosition.getXY(括號內是該事件的編號);</br>
+4. 關閉此功能，或事件結束時，</br>
+   新增→腳本→輸入getWindowPosition.Disable();</br>
+　 ※事件結束時請務必完成本動作，否則將出錯</br>
+</br>
+【範例】</br>
+<font color="#4400B3">腳本：</font><font color="#8C8C8C">getWindowPosition.Enable();</font></br>
+<font color="#4400B3">腳本：</font><font color="#8C8C8C">getWindowPosition.getXY(1);</font></br>
+<font color="#4400B3">文字：</font><font color="#8C8C8C">無, 窗口, 底部</font></br>
+　　<font color="#4400B3">：A_A</font></br>
+<font color="#4400B3">腳本：</font><font color="#8C8C8C">getWindowPosition.Disable();</font></br>
