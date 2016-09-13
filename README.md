@@ -6,9 +6,8 @@
 ### 前置準備
 1.下載它</br>
 2.打開存放遊戲的目錄，進入js資料夾</br>
-3.覆蓋原本的rpg_windows.js</br>
-4.覆蓋原本的plugins資料夾</br>
-5.開啟RMMV，按F10，在空白區按Enter，開啟getWindowPosition與getWindowWidth兩個插件</br>
+3.覆蓋原本的plugins資料夾</br>
+4.開啟RMMV，按F10，在空白區按Enter，開啟SoflatMessageWindow插件</br>
 </br> 
 ### 使用方式
 1.編輯事件</br>
